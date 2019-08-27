@@ -27,5 +27,10 @@ namespace WebBrowser.UI
             MessageBox.Show("This Crox web browser is created by Peng-Yuan (Emily) Huang." + 
                 "\nStudent ID: 904004475\nContact information: pzh0032@tigermail.auburn.edu");
         }
+
+        private void addressTextBox_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Navigate(comboBox1.SelectedItem.ToString());
+        }
     }
 }
