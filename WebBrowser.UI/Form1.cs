@@ -28,9 +28,17 @@ namespace WebBrowser.UI
                 "\nStudent ID: 904004475\nContact information: pzh0032@tigermail.auburn.edu");
         }
 
-        private void addressTextBox_Click(object sender, EventArgs e)
+        private void addressTextBox_KeyUp_1(object sender, KeyEventArgs e)
         {
-            webBrowser1.Navigate(comboBox1.SelectedItem.ToString());
+            if (e.KeyCode == Keys.Enter)
+            {
+                webBrowser1.Navigate(addressTextBox.ToString());
+            }
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Navigate(addressTextBox.ToString());
         }
     }
 }
