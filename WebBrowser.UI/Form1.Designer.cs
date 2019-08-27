@@ -35,6 +35,7 @@
             this.newTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeCurrentTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.savePageAsHTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,8 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newTabToolStripMenuItem,
             this.closeCurrentTabToolStripMenuItem,
-            this.savePageAsHTMLToolStripMenuItem});
+            this.savePageAsHTMLToolStripMenuItem,
+            this.printPageToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
             this.fileToolStripMenuItem.Text = "File";
@@ -91,6 +93,12 @@
             this.savePageAsHTMLToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.savePageAsHTMLToolStripMenuItem.Text = "Save Page As HTML";
             // 
+            // printPageToolStripMenuItem
+            // 
+            this.printPageToolStripMenuItem.Name = "printPageToolStripMenuItem";
+            this.printPageToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.printPageToolStripMenuItem.Text = "Print Page";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -116,6 +124,7 @@
         private System.Windows.Forms.ToolStripMenuItem newTabToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeCurrentTabToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem savePageAsHTMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printPageToolStripMenuItem;
     }
 }
 
