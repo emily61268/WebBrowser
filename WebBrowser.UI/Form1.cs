@@ -32,13 +32,13 @@ namespace WebBrowser.UI
         {
             if (e.KeyCode == Keys.Enter)
             {
-                webBrowser1.Navigate(addressTextBox.ToString());
+                //webBrowser1.Navigate(addressTextBox.ToString());
             }
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            webBrowser1.Navigate(addressTextBox.ToString());
+            //webBrowser1.Navigate(addressTextBox.ToString());
         }
     }
 }
