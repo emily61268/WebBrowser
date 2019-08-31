@@ -16,5 +16,18 @@ namespace WebBrowser.UI
         {
             InitializeComponent();
         }
+
+        private void addressTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                webBrowser1.Navigate(addressTextBox.ToString());
+            }
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Navigate(addressTextBox.ToString());
+        }
     }
 }
