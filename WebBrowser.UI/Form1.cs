@@ -32,7 +32,11 @@ namespace WebBrowser.UI
         {
             if (e.Control && (e.KeyCode == Keys.T))
             {
-                this.tab1.TabPages.Add(new TabPage("New Tab"));
+                MiscControls newControls = new MiscControls();
+                newControls.Dock = DockStyle.Fill;
+                TabPage newPage = new TabPage("New Tab");
+                newPage.Controls.Add(newControls);
+                this.tab1.TabPages.Add(newPage);
 
             }
 
@@ -44,7 +48,11 @@ namespace WebBrowser.UI
 
         private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.tab1.TabPages.Add(new TabPage("New Tab"));
+            MiscControls newControls = new MiscControls();
+            newControls.Dock = DockStyle.Fill;
+            TabPage newPage = new TabPage("New Tab");
+            newPage.Controls.Add(newControls);
+            this.tab1.TabPages.Add(newPage);
         }
 
         private void closeCurrentTabToolStripMenuItem_Click(object sender, EventArgs e)
