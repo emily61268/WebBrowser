@@ -144,14 +144,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripTextBox addressTextBox;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
         public System.Windows.Forms.ToolStrip toolStrip1;
         public System.Windows.Forms.WebBrowser webBrowser1;
+        public System.Windows.Forms.ToolStripButton toolStripButton1;
+        public System.Windows.Forms.ToolStripButton toolStripButton2;
+        public System.Windows.Forms.ToolStripButton toolStripButton3;
+        public System.Windows.Forms.ToolStripButton toolStripButton4;
+        public System.Windows.Forms.ToolStripTextBox addressTextBox;
+        public System.Windows.Forms.ToolStripButton toolStripButton5;
+        public System.Windows.Forms.ToolStripButton toolStripButton6;
     }
 }

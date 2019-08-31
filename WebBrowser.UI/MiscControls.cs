@@ -17,6 +17,9 @@ namespace WebBrowser.UI
             InitializeComponent();
         }
 
+        Stack<string> BackLinkField = new Stack<string>();
+        
+
         private void addressTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
