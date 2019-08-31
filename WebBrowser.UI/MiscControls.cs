@@ -25,6 +25,7 @@ namespace WebBrowser.UI
             if (e.KeyCode == Keys.Enter)
             {
                 webBrowser1.Navigate(addressTextBox.ToString());
+                
             }
         }
 
@@ -33,21 +34,32 @@ namespace WebBrowser.UI
             webBrowser1.Navigate(addressTextBox.ToString());
         }
 
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            addressTextBox.Text = webBrowser1.Url.ToString();
+
+            if (!backLinks.Contains(webBrowser1.Url.ToString()))
+                backLinks.Push(webBrowser1.Url.ToString());
+        }
+
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            webBrowser1.Navigate(addressTextBox.ToString());
+            webBrowser1.Navigate(webBrowser1.Url.ToString());
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             //webBrowser1.GoBack();
-            forwardLinks.Push(addressTextBox.ToString());
+            if(!forwardLinks.Contains(webBrowser1.Url.ToString()))
+                forwardLinks.Push(webBrowser1.Url.ToString());
             if (backLinks.Count == 0)
             {
-                webBrowser1.Navigate(addressTextBox.ToString());
+                webBrowser1.Navigate(webBrowser1.Url.ToString());
             }
             else
             {
+                while (backLinks.Contains(webBrowser1.Url.ToString()))
+                    backLinks.Pop();
                 webBrowser1.Navigate(backLinks.Pop());
             }
         }
@@ -55,15 +67,19 @@ namespace WebBrowser.UI
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             //webBrowser1.GoForward();
-            backLinks.Push(addressTextBox.ToString());
+            backLinks.Push(webBrowser1.Url.ToString());
             if (forwardLinks.Count == 0)
             {
-                webBrowser1.Navigate(addressTextBox.ToString());
+                webBrowser1.Navigate(webBrowser1.Url.ToString());
             }
             else
             {
+                while (forwardLinks.Contains(webBrowser1.Url.ToString()))
+                    forwardLinks.Pop();
                 webBrowser1.Navigate(forwardLinks.Pop());
             }
         }
+
+        
     }
 }
