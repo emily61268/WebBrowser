@@ -43,7 +43,9 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tab1 = new System.Windows.Forms.TabControl();
+            this.miscControls1 = new WebBrowser.UI.MiscControls();
             this.menuStrip1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tab1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,6 +149,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.miscControls1);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -165,6 +168,15 @@
             this.tab1.Size = new System.Drawing.Size(1495, 725);
             this.tab1.TabIndex = 3;
             // 
+            // miscControls1
+            // 
+            this.miscControls1.AutoScroll = true;
+            this.miscControls1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.miscControls1.Location = new System.Drawing.Point(3, 3);
+            this.miscControls1.Name = "miscControls1";
+            this.miscControls1.Size = new System.Drawing.Size(1481, 686);
+            this.miscControls1.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -177,6 +189,7 @@
             this.Text = "Crox";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
             this.tab1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -200,6 +213,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabControl tab1;
+        private MiscControls miscControls1;
     }
 }
 
