@@ -35,11 +35,21 @@ namespace WebBrowser.UI
                 this.tab1.TabPages.Add(new TabPage("New Tab"));
 
             }
+
+            if (e.Control && (e.KeyCode == Keys.W))
+            {
+                this.tab1.TabPages.RemoveAt(this.tab1.SelectedIndex);
+            }
         }
 
         private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.tab1.TabPages.Add(new TabPage("New Tab"));
+        }
+
+        private void closeCurrentTabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.tab1.TabPages.RemoveAt(this.tab1.SelectedIndex);
         }
     }
 }
