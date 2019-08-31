@@ -19,38 +19,51 @@ namespace WebBrowser.UI
 
         private Stack<string> backLinks = new Stack<string>();
         private Stack<string> forwardLinks = new Stack<string>();
-        private string currentPage;
 
         private void addressTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 webBrowser1.Navigate(addressTextBox.ToString());
-                currentPage = addressTextBox.ToString();
             }
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             webBrowser1.Navigate(addressTextBox.ToString());
-            currentPage = addressTextBox.ToString();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            webBrowser1.Navigate(currentPage);
+            webBrowser1.Navigate(addressTextBox.ToString());
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            forwardLinks.Push(currentPage);
-            webBrowser1.Navigate(backLinks.Pop());
+            //webBrowser1.GoBack();
+            forwardLinks.Push(addressTextBox.ToString());
+            if (backLinks.Count == 0)
+            {
+                webBrowser1.Navigate(addressTextBox.ToString());
+            }
+            else
+            {
+                webBrowser1.Navigate(backLinks.Pop());
+            }
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            backLinks.Push(currentPage);
-            webBrowser1.Navigate(forwardLinks.Pop());
+            //webBrowser1.GoForward();
+            backLinks.Push(addressTextBox.ToString());
+            if (forwardLinks.Count == 0)
+            {
+                webBrowser1.Navigate(addressTextBox.ToString());
+            }
+            else
+            {
+                webBrowser1.Navigate(forwardLinks.Pop());
+            }
         }
     }
 }
