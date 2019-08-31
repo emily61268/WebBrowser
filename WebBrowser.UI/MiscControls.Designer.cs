@@ -122,18 +122,18 @@
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.Location = new System.Drawing.Point(0, 31);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1445, 798);
+            this.webBrowser1.Size = new System.Drawing.Size(1445, 767);
             this.webBrowser1.TabIndex = 2;
             // 
             // MiscControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.toolStrip1);
             this.Name = "MiscControls";
             this.Size = new System.Drawing.Size(1445, 798);
             this.toolStrip1.ResumeLayout(false);
