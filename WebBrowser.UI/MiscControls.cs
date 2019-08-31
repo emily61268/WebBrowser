@@ -17,20 +17,28 @@ namespace WebBrowser.UI
             InitializeComponent();
         }
 
-        Stack<string> backLinks = new Stack<string>();
-        Stack<string> forwardLinks = new Stack<string>();
+        private Stack<string> backLinks = new Stack<string>();
+        private Stack<string> forwardLinks = new Stack<string>();
+        private string currentPage;
 
         private void addressTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 webBrowser1.Navigate(addressTextBox.ToString());
+                currentPage = addressTextBox.ToString();
             }
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             webBrowser1.Navigate(addressTextBox.ToString());
+            currentPage = addressTextBox.ToString();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Navigate(currentPage);
         }
     }
 }
