@@ -40,5 +40,11 @@ namespace WebBrowser.UI
         {
             webBrowser1.Navigate(currentPage);
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            forwardLinks.Push(currentPage);
+            webBrowser1.Navigate(backLinks.Pop());
+        }
     }
 }
