@@ -15,18 +15,17 @@ namespace WebBrowser.Logic
             adapter.Insert(item.URL, item.Title);
         }
 
-        public static List<HistoryItem> GetHistoryItems()
+        public static List<BookmarkItem> GetBookmarkItems()
         {
-            var adapter = new HistoryTableAdapter();
-            var results = new List<HistoryItem>();
+            var adapter = new BookmarksTableAdapter();
+            var results = new List<BookmarkItem>();
             var rows = adapter.GetData();
 
             foreach (var row in rows)
             {
-                var item = new HistoryItem();
+                var item = new BookmarkItem();
                 item.URL = row.URL;
                 item.Title = row.Title;
-                item.Date = row.Date;
 
                 results.Add(item);
             }
