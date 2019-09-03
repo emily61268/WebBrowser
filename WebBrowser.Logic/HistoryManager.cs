@@ -3,10 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebBrowser.Data.HistoryDataSetTableAdapters;
 
 namespace WebBrowser.Logic
 {
     public class HistoryManager
     {
+        public static void AddHistoryItem(HistoryItem item)
+        {
+            var adapter = new HistoryTableAdapter();
+            adapter.Insert(item.URL, item.Title, item.Date);
+            //.ToString("yyyy-MM-dd HH:mm:ss.fff")
+        }
+
+        public static List<HistoryItem> GetHistoryItems()
+        {
+            var adapter = new HistoryTableAdapter;
+            var results = new List<HistoryItem>();
+            var rows = adapter.GetData();
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebBrowser.Logic
 {
-    class BookmarkManager
+    public class BookmarkManager
     {
     }
 }
