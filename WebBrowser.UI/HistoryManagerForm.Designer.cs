@@ -49,6 +49,7 @@
             this.Controls.Add(this.listBoxHistoryManager);
             this.Name = "HistoryManagerForm";
             this.Text = "HistoryManagerForm";
+            this.Load += new System.EventHandler(this.HistoryManagerForm_Load);
             this.ResumeLayout(false);
 
         }
