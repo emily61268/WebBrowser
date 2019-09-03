@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebBrowser.Logic
 {
-    public class Class1
+    public class BookmarkItem
     {
     }
 }
