@@ -49,6 +49,7 @@
             this.Controls.Add(this.listBoxBookmarkManager);
             this.Name = "BookmarkManagerForm";
             this.Text = "BookmarkManagerForm";
+            this.Load += new System.EventHandler(this.BookmarkManagerForm_Load);
             this.ResumeLayout(false);
 
         }
