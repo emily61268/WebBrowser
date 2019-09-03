@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.listBoxBookmarkManager = new System.Windows.Forms.ListBox();
+            this.SuspendLayout();
+            // 
+            // listBoxBookmarkManager
+            // 
+            this.listBoxBookmarkManager.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxBookmarkManager.FormattingEnabled = true;
+            this.listBoxBookmarkManager.ItemHeight = 20;
+            this.listBoxBookmarkManager.Location = new System.Drawing.Point(0, 0);
+            this.listBoxBookmarkManager.Name = "listBoxBookmarkManager";
+            this.listBoxBookmarkManager.Size = new System.Drawing.Size(1263, 809);
+            this.listBoxBookmarkManager.TabIndex = 0;
+            // 
+            // BookmarkManagerForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1263, 809);
+            this.Controls.Add(this.listBoxBookmarkManager);
+            this.Name = "BookmarkManagerForm";
             this.Text = "BookmarkManagerForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.ListBox listBoxBookmarkManager;
     }
 }
