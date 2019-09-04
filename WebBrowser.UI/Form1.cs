@@ -59,5 +59,11 @@ namespace WebBrowser.UI
         {
             this.tab1.TabPages.RemoveAt(this.tab1.SelectedIndex);
         }
+
+        private void manageHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HistoryManagerForm historyManagerForm = new HistoryManagerForm();
+            historyManagerForm.ShowDialog();
+        }
     }
 }

@@ -79,7 +79,7 @@
             // 
             this.newTabToolStripMenuItem.Name = "newTabToolStripMenuItem";
             this.newTabToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.newTabToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.newTabToolStripMenuItem.Size = new System.Drawing.Size(302, 30);
             this.newTabToolStripMenuItem.Text = "New Tab";
             this.newTabToolStripMenuItem.Click += new System.EventHandler(this.newTabToolStripMenuItem_Click);
             // 
@@ -94,24 +94,24 @@
             // savePageAsHTMLToolStripMenuItem
             // 
             this.savePageAsHTMLToolStripMenuItem.Name = "savePageAsHTMLToolStripMenuItem";
-            this.savePageAsHTMLToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.savePageAsHTMLToolStripMenuItem.Size = new System.Drawing.Size(302, 30);
             this.savePageAsHTMLToolStripMenuItem.Text = "Save Page As HTML";
             // 
             // printPageToolStripMenuItem
             // 
             this.printPageToolStripMenuItem.Name = "printPageToolStripMenuItem";
-            this.printPageToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.printPageToolStripMenuItem.Size = new System.Drawing.Size(302, 30);
             this.printPageToolStripMenuItem.Text = "Print Page";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(249, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(299, 6);
             // 
             // exitWebBrowserToolStripMenuItem
             // 
             this.exitWebBrowserToolStripMenuItem.Name = "exitWebBrowserToolStripMenuItem";
-            this.exitWebBrowserToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.exitWebBrowserToolStripMenuItem.Size = new System.Drawing.Size(302, 30);
             this.exitWebBrowserToolStripMenuItem.Text = "Exit Web Browser";
             this.exitWebBrowserToolStripMenuItem.Click += new System.EventHandler(this.exitWebBrowserToolStripMenuItem_Click);
             // 
@@ -129,6 +129,7 @@
             this.manageHistoryToolStripMenuItem.Name = "manageHistoryToolStripMenuItem";
             this.manageHistoryToolStripMenuItem.Size = new System.Drawing.Size(254, 30);
             this.manageHistoryToolStripMenuItem.Text = "Manage History";
+            this.manageHistoryToolStripMenuItem.Click += new System.EventHandler(this.manageHistoryToolStripMenuItem_Click);
             // 
             // manageBookmarksToolStripMenuItem
             // 
