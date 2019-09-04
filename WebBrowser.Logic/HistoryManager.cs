@@ -11,8 +11,8 @@ namespace WebBrowser.Logic
     {
         public static void AddHistoryItem(HistoryItem item)
         {
-            var adapter = new HistoryTableAdapter();
-            adapter.Insert(item.URL, item.Title, item.Date);
+            var adapter2 = new HistoryTableAdapter();
+            adapter2.Insert(item.URL, item.Title, item.Date);
             //.ToString("yyyy-MM-dd HH:mm:ss.fff")
         }
 
