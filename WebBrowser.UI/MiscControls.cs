@@ -38,6 +38,12 @@ namespace WebBrowser.UI
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             addressTextBox.Text = webBrowser1.Url.ToString();
+            HistoryItem history = new HistoryItem();
+            history.Title = webBrowser1.DocumentTitle;
+            history.URL = webBrowser1.Url.ToString();
+            history.Date = DateTime.Now;
+
+            HistoryManager.AddHistoryItem(history);
 
             if (!backLinks.Contains(webBrowser1.Url.ToString()))
                 backLinks.Push(webBrowser1.Url.ToString());
