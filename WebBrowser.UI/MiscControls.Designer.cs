@@ -43,7 +43,7 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.goBackButton,
             this.toolStripButton2,
@@ -54,7 +54,7 @@
             this.toolStripButton6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1445, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1445, 37);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -64,8 +64,8 @@
             this.goBackButton.Image = ((System.Drawing.Image)(resources.GetObject("goBackButton.Image")));
             this.goBackButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.goBackButton.Name = "goBackButton";
-            this.goBackButton.Size = new System.Drawing.Size(28, 28);
-            this.goBackButton.Text = "goBackButton";
+            this.goBackButton.Size = new System.Drawing.Size(34, 34);
+            this.goBackButton.Text = "Go to the previous page";
             this.goBackButton.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripButton2
@@ -74,8 +74,8 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(34, 34);
+            this.toolStripButton2.Text = "Go to the next page";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton3
@@ -84,8 +84,8 @@
             this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(34, 34);
+            this.toolStripButton3.Text = "Refresh the current page";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton4
@@ -94,13 +94,13 @@
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(34, 34);
+            this.toolStripButton4.Text = "Home";
             // 
             // addressTextBox
             // 
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(800, 31);
+            this.addressTextBox.Size = new System.Drawing.Size(800, 37);
             this.addressTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.addressTextBox_KeyUp);
             // 
             // toolStripButton5
@@ -109,8 +109,8 @@
             this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButton5.Text = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(34, 34);
+            this.toolStripButton5.Text = "Go to the address";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // toolStripButton6
@@ -119,17 +119,17 @@
             this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(28, 28);
-            this.toolStripButton6.Text = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(34, 34);
+            this.toolStripButton6.Text = "Add the current page to the Bookmarks";
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 31);
+            this.webBrowser1.Location = new System.Drawing.Point(0, 37);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1445, 767);
+            this.webBrowser1.Size = new System.Drawing.Size(1445, 761);
             this.webBrowser1.TabIndex = 2;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 

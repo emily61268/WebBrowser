@@ -42,8 +42,8 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tab1 = new System.Windows.Forms.TabControl();
             this.miscControls1 = new WebBrowser.UI.MiscControls();
+            this.tab1 = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tab1.SuspendLayout();
@@ -164,6 +164,15 @@
             this.tabPage1.Text = "Page 1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // miscControls1
+            // 
+            this.miscControls1.AutoScroll = true;
+            this.miscControls1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.miscControls1.Location = new System.Drawing.Point(3, 3);
+            this.miscControls1.Name = "miscControls1";
+            this.miscControls1.Size = new System.Drawing.Size(1481, 686);
+            this.miscControls1.TabIndex = 0;
+            // 
             // tab1
             // 
             this.tab1.Controls.Add(this.tabPage1);
@@ -174,15 +183,6 @@
             this.tab1.Size = new System.Drawing.Size(1495, 725);
             this.tab1.TabIndex = 3;
             // 
-            // miscControls1
-            // 
-            this.miscControls1.AutoScroll = true;
-            this.miscControls1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.miscControls1.Location = new System.Drawing.Point(3, 3);
-            this.miscControls1.Name = "miscControls1";
-            this.miscControls1.Size = new System.Drawing.Size(1481, 686);
-            this.miscControls1.TabIndex = 0;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -192,7 +192,9 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crox";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -219,8 +221,8 @@
         private System.Windows.Forms.ToolStripMenuItem manageBookmarksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabControl tab1;
         private MiscControls miscControls1;
+        public System.Windows.Forms.TabControl tab1;
     }
 }
 
