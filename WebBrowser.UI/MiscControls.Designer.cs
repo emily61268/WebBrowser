@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MiscControls));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.goBackButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.goForward = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.addressTextBox = new System.Windows.Forms.ToolStripTextBox();
@@ -43,10 +43,11 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.Window;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.goBackButton,
-            this.toolStripButton2,
+            this.goForward,
             this.toolStripButton3,
             this.toolStripButton4,
             this.addressTextBox,
@@ -61,6 +62,7 @@
             // goBackButton
             // 
             this.goBackButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.goBackButton.Enabled = false;
             this.goBackButton.Image = ((System.Drawing.Image)(resources.GetObject("goBackButton.Image")));
             this.goBackButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.goBackButton.Name = "goBackButton";
@@ -68,15 +70,16 @@
             this.goBackButton.Text = "Go to the previous page";
             this.goBackButton.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripButton2
+            // goForward
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(34, 34);
-            this.toolStripButton2.Text = "Go to the next page";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.goForward.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.goForward.Enabled = false;
+            this.goForward.Image = ((System.Drawing.Image)(resources.GetObject("goForward.Image")));
+            this.goForward.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.goForward.Name = "goForward";
+            this.goForward.Size = new System.Drawing.Size(34, 34);
+            this.goForward.Text = "Go to the next page";
+            this.goForward.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton3
             // 
@@ -96,9 +99,11 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(34, 34);
             this.toolStripButton4.Text = "Home";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // addressTextBox
             // 
+            this.addressTextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(800, 37);
             this.addressTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.addressTextBox_KeyUp);
@@ -131,6 +136,7 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(1445, 761);
             this.webBrowser1.TabIndex = 2;
+            this.webBrowser1.Url = new System.Uri("http://www.google.com", System.UriKind.Absolute);
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // MiscControls
@@ -152,7 +158,7 @@
         public System.Windows.Forms.ToolStrip toolStrip1;
         public System.Windows.Forms.WebBrowser webBrowser1;
         public System.Windows.Forms.ToolStripButton goBackButton;
-        public System.Windows.Forms.ToolStripButton toolStripButton2;
+        public System.Windows.Forms.ToolStripButton goForward;
         public System.Windows.Forms.ToolStripButton toolStripButton3;
         public System.Windows.Forms.ToolStripButton toolStripButton4;
         public System.Windows.Forms.ToolStripTextBox addressTextBox;

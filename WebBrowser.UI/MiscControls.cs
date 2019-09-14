@@ -46,8 +46,12 @@ namespace WebBrowser.UI
 
             HistoryManager.AddHistoryItem(history);
 
-            if (!backLinks.Contains(webBrowser1.Url.ToString()))
-                backLinks.Push(webBrowser1.Url.ToString());
+            if (!backLinks.Contains(webBrowser1.Url.ToString()) && !webBrowser1.Url.ToString().Contains("#spf="))
+            {
+                backLinks.Push(addressTextBox.Text);
+                goBackButton.Enabled = true;
+            }
+                
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -58,33 +62,55 @@ namespace WebBrowser.UI
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             //webBrowser1.GoBack();
-            if(!forwardLinks.Contains(webBrowser1.Url.ToString()))
+            
+            if (!forwardLinks.Contains(webBrowser1.Url.ToString()) || !forwardLinks.Peek().Contains("#spf="))
+            {
                 forwardLinks.Push(webBrowser1.Url.ToString());
-            if (backLinks.Count == 0)
-            {
-                webBrowser1.Navigate(webBrowser1.Url.ToString());
+                goForward.Enabled = true;
             }
-            else
+
+            try
             {
-                while (backLinks.Contains(webBrowser1.Url.ToString()))
+                while (backLinks.Contains(webBrowser1.Url.ToString()) || backLinks.Peek().Contains("#spf="))
                     backLinks.Pop();
-                webBrowser1.Navigate(backLinks.Pop());
+
+                if (backLinks.Count == 1)
+                {
+                    webBrowser1.Navigate(backLinks.Peek());
+                    goBackButton.Enabled = false;
+                }
+                else
+                {
+                    webBrowser1.Navigate(backLinks.Pop());
+                }
             }
+            catch (Exception)
+            {
+                goBackButton.Enabled = false;
+            }    
+
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             //webBrowser1.GoForward();
-            backLinks.Push(webBrowser1.Url.ToString());
-            if (forwardLinks.Count == 0)
+            
+            if (!backLinks.Contains(webBrowser1.Url.ToString()))
             {
-                webBrowser1.Navigate(webBrowser1.Url.ToString());
+                backLinks.Push(webBrowser1.Url.ToString());
+                goBackButton.Enabled = true;
             }
-            else
+
+            while (forwardLinks.Contains(webBrowser1.Url.ToString()))
+                forwardLinks.Pop();
+
+            try
             {
-                while (forwardLinks.Contains(webBrowser1.Url.ToString()))
-                    forwardLinks.Pop();
                 webBrowser1.Navigate(forwardLinks.Pop());
+            }
+            catch (Exception)
+            {
+                goForward.Enabled = false;
             }
         }
 
@@ -95,6 +121,11 @@ namespace WebBrowser.UI
             bookmark.URL = webBrowser1.Url.ToString();
 
             BookmarkManager.AddBookmarkItem(bookmark);
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Navigate("www.google.com");
         }
     }
 }
