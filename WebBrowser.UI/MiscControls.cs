@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WebBrowser.Logic;
 using System.Data.SqlTypes;
 
+
 namespace WebBrowser.UI
 {
     public partial class MiscControls : UserControl
@@ -39,6 +40,7 @@ namespace WebBrowser.UI
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             addressTextBox.Text = webBrowser1.Url.ToString();
+
             HistoryItem history = new HistoryItem();
             history.Title = webBrowser1.DocumentTitle;
             history.URL = webBrowser1.Url.ToString();
@@ -81,6 +83,10 @@ namespace WebBrowser.UI
                 }
                 else
                 {
+                    if (webBrowser1.Url.ToString().Contains(backLinks.Peek()))
+                    {
+                        backLinks.Pop();
+                    }
                     webBrowser1.Navigate(backLinks.Pop());
                 }
             }

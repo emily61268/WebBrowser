@@ -42,8 +42,8 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tab1 = new System.Windows.Forms.TabControl();
             this.miscControls1 = new WebBrowser.UI.MiscControls();
+            this.tab1 = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tab1.SuspendLayout();
@@ -164,16 +164,6 @@
             this.tabPage1.Text = "Page 1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tab1
-            // 
-            this.tab1.Controls.Add(this.tabPage1);
-            this.tab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tab1.Location = new System.Drawing.Point(0, 33);
-            this.tab1.Name = "tab1";
-            this.tab1.SelectedIndex = 0;
-            this.tab1.Size = new System.Drawing.Size(1495, 725);
-            this.tab1.TabIndex = 3;
-            // 
             // miscControls1
             // 
             this.miscControls1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -181,6 +171,17 @@
             this.miscControls1.Name = "miscControls1";
             this.miscControls1.Size = new System.Drawing.Size(1481, 686);
             this.miscControls1.TabIndex = 0;
+            // 
+            // tab1
+            // 
+            this.tab1.Controls.Add(this.tabPage1);
+            this.tab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tab1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tab1.Location = new System.Drawing.Point(0, 33);
+            this.tab1.Name = "tab1";
+            this.tab1.SelectedIndex = 0;
+            this.tab1.Size = new System.Drawing.Size(1495, 725);
+            this.tab1.TabIndex = 3;
             // 
             // Form1
             // 
