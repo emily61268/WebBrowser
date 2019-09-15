@@ -40,7 +40,8 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.addressLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.loadLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -142,13 +143,16 @@
             this.webBrowser1.TabIndex = 2;
             this.webBrowser1.Url = new System.Uri("http://www.google.com", System.UriKind.Absolute);
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser1_Navigating);
+            this.webBrowser1.ProgressChanged += new System.Windows.Forms.WebBrowserProgressChangedEventHandler(this.webBrowser1_ProgressChanged);
             // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addressLabel,
-            this.toolStripProgressBar1});
+            this.progressBar1,
+            this.loadLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 768);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1445, 30);
@@ -157,14 +161,21 @@
             // 
             // addressLabel
             // 
+            this.addressLabel.AutoSize = false;
             this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(118, 25);
+            this.addressLabel.Size = new System.Drawing.Size(500, 25);
             this.addressLabel.Text = "Web Address";
             // 
-            // toolStripProgressBar1
+            // progressBar1
             // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(300, 24);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(300, 24);
+            // 
+            // loadLabel
+            // 
+            this.loadLabel.Name = "loadLabel";
+            this.loadLabel.Size = new System.Drawing.Size(88, 25);
+            this.loadLabel.Text = "Loading...";
             // 
             // MiscControls
             // 
@@ -196,6 +207,7 @@
         public System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.Windows.Forms.StatusStrip statusStrip1;
         public System.Windows.Forms.ToolStripStatusLabel addressLabel;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripProgressBar progressBar1;
+        private System.Windows.Forms.ToolStripStatusLabel loadLabel;
     }
 }
