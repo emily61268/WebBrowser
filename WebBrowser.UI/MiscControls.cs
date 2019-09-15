@@ -22,7 +22,6 @@ namespace WebBrowser.UI
 
         private Stack<string> backLinks = new Stack<string>();
         private Stack<string> forwardLinks = new Stack<string>();
-        private HtmlDocument document;
 
         //When hit enter, the web browser will navigate to the address in the address TextBox
         private void addressTextBox_KeyUp(object sender, KeyEventArgs e)
@@ -58,20 +57,12 @@ namespace WebBrowser.UI
                 goBackButton.Enabled = true;
             }
 
-            this.document = this.webBrowser1.Document;
-            this.document.MouseOver += new HtmlElementEventHandler(document_MouseOver);
-            this.document.MouseLeave += new HtmlElementEventHandler(document_MouseLeave);
-
+            webBrowser1.Document.MouseOver += new HtmlElementEventHandler(document_MouseOver);
         }
 
         private void document_MouseOver(object sender, HtmlElementEventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void document_MouseLeave(object sender, HtmlElementEventArgs e)
-        {
-            throw new NotImplementedException();
+            addressLabel.Text = e.ToElement.GetAttribute("href");
         }
 
         //Refresh button

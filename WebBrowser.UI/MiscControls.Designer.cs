@@ -164,7 +164,7 @@
             this.addressLabel.AutoSize = false;
             this.addressLabel.Name = "addressLabel";
             this.addressLabel.Size = new System.Drawing.Size(500, 25);
-            this.addressLabel.Text = "Web Address";
+            this.addressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // progressBar1
             // 
