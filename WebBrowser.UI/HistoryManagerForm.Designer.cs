@@ -30,11 +30,11 @@
         {
             this.listBoxHistoryManager = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.searchTerm = new System.Windows.Forms.TextBox();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.clearButton = new System.Windows.Forms.Button();
-            this.deleteHistoryButton = new System.Windows.Forms.Button();
             this.clearAllButton = new System.Windows.Forms.Button();
+            this.deleteHistoryButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.searchTerm = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,35 +63,16 @@
             this.panel1.Size = new System.Drawing.Size(1311, 120);
             this.panel1.TabIndex = 1;
             // 
-            // searchTerm
+            // clearAllButton
             // 
-            this.searchTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.searchTerm.Location = new System.Drawing.Point(22, 23);
-            this.searchTerm.Name = "searchTerm";
-            this.searchTerm.Size = new System.Drawing.Size(957, 37);
-            this.searchTerm.TabIndex = 0;
-            // 
-            // searchButton
-            // 
-            this.searchButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(996, 21);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(115, 44);
-            this.searchButton.TabIndex = 1;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // clearButton
-            // 
-            this.clearButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(1119, 21);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(167, 44);
-            this.clearButton.TabIndex = 2;
-            this.clearButton.Text = "Clear Search";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearAllButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearAllButton.Location = new System.Drawing.Point(176, 71);
+            this.clearAllButton.Name = "clearAllButton";
+            this.clearAllButton.Size = new System.Drawing.Size(197, 38);
+            this.clearAllButton.TabIndex = 4;
+            this.clearAllButton.Text = "Clear History";
+            this.clearAllButton.UseVisualStyleBackColor = true;
+            this.clearAllButton.Click += new System.EventHandler(this.clearAllButton_Click);
             // 
             // deleteHistoryButton
             // 
@@ -104,16 +85,36 @@
             this.deleteHistoryButton.UseVisualStyleBackColor = true;
             this.deleteHistoryButton.Click += new System.EventHandler(this.deleteHistoryButton_Click);
             // 
-            // clearAllButton
+            // clearButton
             // 
-            this.clearAllButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearAllButton.Location = new System.Drawing.Point(176, 71);
-            this.clearAllButton.Name = "clearAllButton";
-            this.clearAllButton.Size = new System.Drawing.Size(197, 38);
-            this.clearAllButton.TabIndex = 4;
-            this.clearAllButton.Text = "Clear History";
-            this.clearAllButton.UseVisualStyleBackColor = true;
-            this.clearAllButton.Click += new System.EventHandler(this.clearAllButton_Click);
+            this.clearButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.Location = new System.Drawing.Point(1119, 21);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(167, 44);
+            this.clearButton.TabIndex = 2;
+            this.clearButton.Text = "Clear Search";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // searchButton
+            // 
+            this.searchButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(996, 21);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(115, 44);
+            this.searchButton.TabIndex = 1;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // searchTerm
+            // 
+            this.searchTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.searchTerm.Location = new System.Drawing.Point(22, 23);
+            this.searchTerm.Name = "searchTerm";
+            this.searchTerm.Size = new System.Drawing.Size(957, 37);
+            this.searchTerm.TabIndex = 0;
+            this.searchTerm.KeyUp += new System.Windows.Forms.KeyEventHandler(this.searchTerm_KeyUp);
             // 
             // HistoryManagerForm
             // 

@@ -51,10 +51,35 @@ namespace WebBrowser.UI
             }
         }
 
+        private void searchTerm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                List<HistoryItem> items = HistoryManager.GetHistoryItems();
+                List<HistoryItem> resultList = new List<HistoryItem>();
+                listBoxHistoryManager.Items.Clear();
+
+                foreach (var item in items)
+                {
+                    string itemString = string.Format("[{0}] {1} ({2})", item.DateTime, item.Title, item.URL);
+                    if (Regex.IsMatch(itemString, string.Format(@"\b{0}\b", Regex.Escape(searchTerm.Text)), RegexOptions.IgnoreCase))
+                    {
+                        resultList.Add(item);
+                    }
+                }
+
+                foreach (var result in resultList)
+                {
+                    listBoxHistoryManager.Items.Add(string.Format("[{0}] {1} ({2})", result.DateTime, result.Title, result.URL));
+                }
+            }
+        }
+
         private void clearButton_Click(object sender, EventArgs e)
         {
             List<HistoryItem> items = HistoryManager.GetHistoryItems();
             listBoxHistoryManager.Items.Clear();
+            searchTerm.Text = "";
 
             foreach (HistoryItem item in items)
             {
