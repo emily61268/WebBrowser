@@ -84,5 +84,56 @@ namespace WebBrowser.UI
                 HistoryManager.DeleteHistoryItem(id, time);
             }
         }
+
+        private void tab1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index == this.tab1.TabCount - 1)
+            {
+                e.Graphics.DrawString("+", e.Font, Brushes.Red, e.Bounds.Right - 15, e.Bounds.Top + 4);
+                this.tab1.Padding = new Point(20, 3);
+            }
+            else
+            {
+                e.Graphics.DrawString("x", e.Font, Brushes.Red, e.Bounds.Right - 15, e.Bounds.Top + 4);
+                e.Graphics.DrawString(this.tab1.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 12, e.Bounds.Top + 4);
+                e.DrawFocusRectangle();
+            }
+        }
+
+        private void tab1_MouseDown(object sender, MouseEventArgs e)
+        {
+            var lastIndex = this.tab1.TabCount - 1;
+            if (this.tab1.GetTabRect(lastIndex).Contains(e.Location))
+            {
+                MiscControls newControls = new MiscControls();
+                newControls.Dock = DockStyle.Fill;
+                TabPage newPage = new TabPage("New Tab");
+                newPage.Controls.Add(newControls);
+                this.tab1.TabPages.Add(newPage);
+                //this.tab1.TabPages.Insert(lastIndex, "New Tab");
+                this.tab1.SelectedIndex = lastIndex;
+            }
+            else
+            {
+                for (int i = 0; i < this.tab1.TabPages.Count; i++)
+                {
+                    Rectangle r = tab1.GetTabRect(i);
+                    //Getting the position of the "x" mark.
+                    Rectangle closeButton = new Rectangle(r.Right - 15, r.Top + 4, 9, 7);
+                    if (closeButton.Contains(e.Location))
+                    {
+                        this.tab1.TabPages.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+        }
+
+        //Prevent selecting last tab
+        private void tab1_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (e.TabPageIndex == this.tab1.TabCount - 1)
+                e.Cancel = true;
+        }
     }
 }

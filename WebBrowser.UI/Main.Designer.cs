@@ -1,4 +1,6 @@
-﻿namespace WebBrowser.UI
+﻿using System;
+
+namespace WebBrowser.UI
 {
     partial class Main
     {
@@ -39,16 +41,19 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageBookmarksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.clearHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.miscControls1 = new WebBrowser.UI.MiscControls();
             this.tab1 = new System.Windows.Forms.TabControl();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.clearHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.miscControls2 = new WebBrowser.UI.MiscControls();
             this.menuStrip1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tab1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -142,6 +147,18 @@
             this.manageBookmarksToolStripMenuItem.Text = "Manage Bookmarks";
             this.manageBookmarksToolStripMenuItem.Click += new System.EventHandler(this.manageBookmarksToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(251, 6);
+            // 
+            // clearHistoryToolStripMenuItem
+            // 
+            this.clearHistoryToolStripMenuItem.Name = "clearHistoryToolStripMenuItem";
+            this.clearHistoryToolStripMenuItem.Size = new System.Drawing.Size(254, 30);
+            this.clearHistoryToolStripMenuItem.Text = "Clear History";
+            this.clearHistoryToolStripMenuItem.Click += new System.EventHandler(this.clearHistoryToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -179,25 +196,40 @@
             // tab1
             // 
             this.tab1.Controls.Add(this.tabPage1);
+            this.tab1.Controls.Add(this.tabPage2);
             this.tab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tab1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tab1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tab1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.tab1.ItemSize = new System.Drawing.Size(65, 25);
             this.tab1.Location = new System.Drawing.Point(0, 33);
             this.tab1.Name = "tab1";
+            this.tab1.Padding = new System.Drawing.Point(20, 5);
             this.tab1.SelectedIndex = 0;
             this.tab1.Size = new System.Drawing.Size(1495, 725);
             this.tab1.TabIndex = 3;
+            this.tab1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tab1_DrawItem);
+            this.tab1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tab1_Selecting);
+            this.tab1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tab1_MouseDown);
             // 
-            // toolStripSeparator2
+            // tabPage2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(251, 6);
+            this.tabPage2.Controls.Add(this.miscControls2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1487, 692);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "New Tab";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // clearHistoryToolStripMenuItem
+            // miscControls2
             // 
-            this.clearHistoryToolStripMenuItem.Name = "clearHistoryToolStripMenuItem";
-            this.clearHistoryToolStripMenuItem.Size = new System.Drawing.Size(254, 30);
-            this.clearHistoryToolStripMenuItem.Text = "Clear History";
-            this.clearHistoryToolStripMenuItem.Click += new System.EventHandler(this.clearHistoryToolStripMenuItem_Click);
+            this.miscControls2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.miscControls2.Location = new System.Drawing.Point(3, 3);
+            this.miscControls2.Name = "miscControls2";
+            this.miscControls2.Size = new System.Drawing.Size(1481, 686);
+            this.miscControls2.TabIndex = 0;
             // 
             // Main
             // 
@@ -216,6 +248,7 @@
             this.menuStrip1.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tab1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,11 +269,13 @@
         private System.Windows.Forms.ToolStripMenuItem manageHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageBookmarksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.TabPage tabPage1;
         public System.Windows.Forms.TabControl tab1;
         private MiscControls miscControls1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem clearHistoryToolStripMenuItem;
+        public System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private MiscControls miscControls2;
     }
 }
 
