@@ -46,8 +46,9 @@
             this.listBoxHistoryManager.ItemHeight = 27;
             this.listBoxHistoryManager.Location = new System.Drawing.Point(0, 120);
             this.listBoxHistoryManager.Name = "listBoxHistoryManager";
+            this.listBoxHistoryManager.ScrollAlwaysVisible = true;
             this.listBoxHistoryManager.Size = new System.Drawing.Size(1311, 666);
-            this.listBoxHistoryManager.TabIndex = 0;
+            this.listBoxHistoryManager.TabIndex = 5;
             // 
             // panel1
             // 
@@ -61,7 +62,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1311, 120);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 6;
             // 
             // clearAllButton
             // 

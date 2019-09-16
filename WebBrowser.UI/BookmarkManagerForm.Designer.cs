@@ -40,12 +40,14 @@
             // listBoxBookmarkManager
             // 
             this.listBoxBookmarkManager.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxBookmarkManager.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxBookmarkManager.FormattingEnabled = true;
-            this.listBoxBookmarkManager.ItemHeight = 20;
-            this.listBoxBookmarkManager.Location = new System.Drawing.Point(0, 0);
+            this.listBoxBookmarkManager.ItemHeight = 27;
+            this.listBoxBookmarkManager.Location = new System.Drawing.Point(0, 130);
             this.listBoxBookmarkManager.Name = "listBoxBookmarkManager";
-            this.listBoxBookmarkManager.Size = new System.Drawing.Size(1263, 809);
-            this.listBoxBookmarkManager.TabIndex = 0;
+            this.listBoxBookmarkManager.ScrollAlwaysVisible = true;
+            this.listBoxBookmarkManager.Size = new System.Drawing.Size(1263, 679);
+            this.listBoxBookmarkManager.TabIndex = 4;
             // 
             // panel1
             // 
@@ -58,7 +60,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1263, 130);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 5;
             // 
             // searchTerm
             // 
@@ -89,6 +91,7 @@
             this.clearSearchButton.TabIndex = 2;
             this.clearSearchButton.Text = "Clear Search";
             this.clearSearchButton.UseVisualStyleBackColor = true;
+            this.clearSearchButton.Click += new System.EventHandler(this.clearSearchButton_Click);
             // 
             // deleteButton
             // 
@@ -99,14 +102,15 @@
             this.deleteButton.TabIndex = 3;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // BookmarkManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1263, 809);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.listBoxBookmarkManager);
+            this.Controls.Add(this.panel1);
             this.Name = "BookmarkManagerForm";
             this.Text = "BookmarkManagerForm";
             this.Load += new System.EventHandler(this.BookmarkManagerForm_Load);

@@ -11,25 +11,32 @@ namespace WebBrowser.Logic
     {
         public static void AddBookmarkItem(BookmarkItem item)
         {
-            var adapter1 = new BookmarksTableAdapter();
+            BookmarksTableAdapter adapter1 = new BookmarksTableAdapter();
             adapter1.Insert(item.URL, item.Title);
         }
 
         public static List<BookmarkItem> GetBookmarkItems()
         {
-            var adapter = new BookmarksTableAdapter();
-            var results = new List<BookmarkItem>();
+            BookmarksTableAdapter adapter = new BookmarksTableAdapter();
+            List<BookmarkItem> results = new List<BookmarkItem>();
             var rows = adapter.GetData();
 
             foreach (var row in rows)
             {
-                var item = new BookmarkItem();
+                BookmarkItem item = new BookmarkItem();
                 item.URL = row.URL;
                 item.Title = row.Title;
+                item.ID = row.Id;
 
                 results.Add(item);
             }
             return results;
+        }
+
+        public static void DeleteBookmarkItem(int id)
+        {
+            BookmarksTableAdapter adapter = new BookmarksTableAdapter();
+            adapter.Delete(id);
         }
     }
 }

@@ -74,5 +74,36 @@ namespace WebBrowser.UI
                 }
             }
         }
+
+        private void clearSearchButton_Click(object sender, EventArgs e)
+        {
+            List<BookmarkItem> items = BookmarkManager.GetBookmarkItems();
+            listBoxBookmarkManager.Items.Clear();
+            searchTerm.Text = "";
+
+            foreach (BookmarkItem item in items)
+            {
+                listBoxBookmarkManager.Items.Add(string.Format("{0} ({1})", item.Title, item.URL));
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            int index = listBoxBookmarkManager.SelectedIndex;
+
+            List<BookmarkItem> items = BookmarkManager.GetBookmarkItems();
+            BookmarkItem item = items.ElementAt(index);
+            int id = item.ID;
+            BookmarkManager.DeleteBookmarkItem(id);
+
+            listBoxBookmarkManager.Items.Clear();
+
+            items = BookmarkManager.GetBookmarkItems();
+
+            foreach (BookmarkItem i in items)
+            {
+                listBoxBookmarkManager.Items.Add(string.Format("{0} ({1})", i.Title, i.URL));
+            }
+        }
     }
 }
