@@ -1,6 +1,6 @@
 ﻿namespace WebBrowser.UI
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.miscControls1 = new WebBrowser.UI.MiscControls();
             this.tab1 = new System.Windows.Forms.TabControl();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.clearHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tab1.SuspendLayout();
@@ -119,7 +121,9 @@
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageHistoryToolStripMenuItem,
-            this.manageBookmarksToolStripMenuItem});
+            this.manageBookmarksToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.clearHistoryToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -183,7 +187,19 @@
             this.tab1.Size = new System.Drawing.Size(1495, 725);
             this.tab1.TabIndex = 3;
             // 
-            // Form1
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(251, 6);
+            // 
+            // clearHistoryToolStripMenuItem
+            // 
+            this.clearHistoryToolStripMenuItem.Name = "clearHistoryToolStripMenuItem";
+            this.clearHistoryToolStripMenuItem.Size = new System.Drawing.Size(254, 30);
+            this.clearHistoryToolStripMenuItem.Text = "Clear History";
+            this.clearHistoryToolStripMenuItem.Click += new System.EventHandler(this.clearHistoryToolStripMenuItem_Click);
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -191,7 +207,7 @@
             this.Controls.Add(this.tab1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crox";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -223,6 +239,8 @@
         private System.Windows.Forms.TabPage tabPage1;
         public System.Windows.Forms.TabControl tab1;
         private MiscControls miscControls1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem clearHistoryToolStripMenuItem;
     }
 }
 

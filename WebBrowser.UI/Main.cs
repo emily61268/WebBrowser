@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WebBrowser.UI
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        public Main()
         {
             InitializeComponent();
         }
@@ -70,6 +70,11 @@ namespace WebBrowser.UI
         {
             BookmarkManagerForm bookmarkManagerForm = new BookmarkManagerForm();
             bookmarkManagerForm.ShowDialog();
+        }
+
+        private void clearHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
