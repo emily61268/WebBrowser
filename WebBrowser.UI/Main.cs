@@ -27,7 +27,7 @@ namespace WebBrowser.UI
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Crox web browser is created by Peng-Yuan (Emily) Huang." + 
+            MessageBox.Show("This Qrox web browser is created by Peng-Yuan (Emily) Huang." + 
                 "\nStudent ID: 904004475\nContact information: pzh0032@tigermail.auburn.edu");
         }
 
