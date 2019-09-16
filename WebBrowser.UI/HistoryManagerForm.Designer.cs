@@ -29,27 +29,64 @@
         private void InitializeComponent()
         {
             this.listBoxHistoryManager = new System.Windows.Forms.ListBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.searchTerm = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxHistoryManager
             // 
             this.listBoxHistoryManager.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxHistoryManager.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxHistoryManager.FormattingEnabled = true;
-            this.listBoxHistoryManager.ItemHeight = 20;
-            this.listBoxHistoryManager.Location = new System.Drawing.Point(0, 0);
+            this.listBoxHistoryManager.ItemHeight = 27;
+            this.listBoxHistoryManager.Location = new System.Drawing.Point(0, 79);
             this.listBoxHistoryManager.Name = "listBoxHistoryManager";
-            this.listBoxHistoryManager.Size = new System.Drawing.Size(1240, 786);
+            this.listBoxHistoryManager.Size = new System.Drawing.Size(1311, 707);
             this.listBoxHistoryManager.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel1.Controls.Add(this.searchButton);
+            this.panel1.Controls.Add(this.searchTerm);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1311, 79);
+            this.panel1.TabIndex = 1;
+            // 
+            // searchTerm
+            // 
+            this.searchTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.searchTerm.Location = new System.Drawing.Point(22, 23);
+            this.searchTerm.Name = "searchTerm";
+            this.searchTerm.Size = new System.Drawing.Size(1060, 37);
+            this.searchTerm.TabIndex = 0;
+            // 
+            // searchButton
+            // 
+            this.searchButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(1097, 15);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(121, 53);
+            this.searchButton.TabIndex = 1;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
             // 
             // HistoryManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1240, 786);
+            this.ClientSize = new System.Drawing.Size(1311, 786);
             this.Controls.Add(this.listBoxHistoryManager);
+            this.Controls.Add(this.panel1);
             this.Name = "HistoryManagerForm";
             this.Text = "HistoryManagerForm";
             this.Load += new System.EventHandler(this.HistoryManagerForm_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -57,5 +94,8 @@
         #endregion
 
         private System.Windows.Forms.ListBox listBoxHistoryManager;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.TextBox searchTerm;
     }
 }
