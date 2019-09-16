@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.searchTerm = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.panel1.Controls.Add(this.clearButton);
             this.panel1.Controls.Add(this.searchButton);
             this.panel1.Controls.Add(this.searchTerm);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -62,18 +64,30 @@
             this.searchTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.searchTerm.Location = new System.Drawing.Point(22, 23);
             this.searchTerm.Name = "searchTerm";
-            this.searchTerm.Size = new System.Drawing.Size(1060, 37);
+            this.searchTerm.Size = new System.Drawing.Size(957, 37);
             this.searchTerm.TabIndex = 0;
             // 
             // searchButton
             // 
-            this.searchButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(1097, 15);
+            this.searchButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(996, 21);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(121, 53);
+            this.searchButton.Size = new System.Drawing.Size(115, 44);
             this.searchButton.TabIndex = 1;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // clearButton
+            // 
+            this.clearButton.Font = new System.Drawing.Font("MS Reference Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.Location = new System.Drawing.Point(1119, 21);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(167, 44);
+            this.clearButton.TabIndex = 2;
+            this.clearButton.Text = "Clear Search";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // HistoryManagerForm
             // 
@@ -97,5 +111,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox searchTerm;
+        private System.Windows.Forms.Button clearButton;
     }
 }
