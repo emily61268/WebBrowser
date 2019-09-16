@@ -110,7 +110,7 @@
             // 
             this.addressTextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(800, 37);
+            this.addressTextBox.Size = new System.Drawing.Size(900, 37);
             this.addressTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.addressTextBox_KeyUp);
             // 
             // toolStripButton5

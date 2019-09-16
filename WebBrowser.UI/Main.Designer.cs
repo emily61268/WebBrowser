@@ -30,6 +30,7 @@ namespace WebBrowser.UI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -195,6 +196,7 @@ namespace WebBrowser.UI
             // 
             // tab1
             // 
+            this.tab1.AllowDrop = true;
             this.tab1.Controls.Add(this.tabPage1);
             this.tab1.Controls.Add(this.tabPage2);
             this.tab1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -204,13 +206,15 @@ namespace WebBrowser.UI
             this.tab1.ItemSize = new System.Drawing.Size(65, 25);
             this.tab1.Location = new System.Drawing.Point(0, 33);
             this.tab1.Name = "tab1";
-            this.tab1.Padding = new System.Drawing.Point(20, 5);
             this.tab1.SelectedIndex = 0;
             this.tab1.Size = new System.Drawing.Size(1495, 725);
             this.tab1.TabIndex = 3;
             this.tab1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tab1_DrawItem);
             this.tab1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tab1_Selecting);
+            this.tab1.DragOver += new System.Windows.Forms.DragEventHandler(this.tab1_DragOver);
             this.tab1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tab1_MouseDown);
+            this.tab1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tab1_MouseMove);
+            this.tab1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tab1_MouseUp);
             // 
             // tabPage2
             // 
@@ -238,12 +242,13 @@ namespace WebBrowser.UI
             this.ClientSize = new System.Drawing.Size(1495, 758);
             this.Controls.Add(this.tab1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crox";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -269,13 +274,13 @@ namespace WebBrowser.UI
         private System.Windows.Forms.ToolStripMenuItem manageHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageBookmarksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        public System.Windows.Forms.TabControl tab1;
         private MiscControls miscControls1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem clearHistoryToolStripMenuItem;
         public System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private MiscControls miscControls2;
+        public System.Windows.Forms.TabControl tab1;
     }
 }
 
