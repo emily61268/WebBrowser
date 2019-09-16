@@ -113,6 +113,7 @@
             this.clearAllButton.TabIndex = 4;
             this.clearAllButton.Text = "Clear History";
             this.clearAllButton.UseVisualStyleBackColor = true;
+            this.clearAllButton.Click += new System.EventHandler(this.clearAllButton_Click);
             // 
             // HistoryManagerForm
             // 
