@@ -11,14 +11,14 @@ namespace WebBrowser.Logic
     public class HistoryManager
     {
 
-        static Queue<DateTime> MyTime = new Queue<DateTime>();
+        static List<DateTime> MyTime = new List<DateTime>();
         static int index;
 
         public static void AddHistoryItem(HistoryItem item)
         {
-            HistoryTableAdapter adapter2 = new HistoryTableAdapter();
-            adapter2.Insert(item.URL, item.Title, item.Date);
-            MyTime.Enqueue(item.Date);
+            HistoryTableAdapter adapter = new HistoryTableAdapter();
+            adapter.Insert(item.URL, item.Title, item.Date);
+            MyTime.Add(item.Date);
         }
 
         public static List<HistoryItem> GetHistoryItems()
@@ -41,6 +41,32 @@ namespace WebBrowser.Logic
             }
 
             return results;
+        }
+
+        public static List<HistoryItem> GetHistoryItems2()
+        {
+            HistoryTableAdapter adapter = new HistoryTableAdapter();
+            List<HistoryItem> results = new List<HistoryItem>();
+            var rows = adapter.GetData();
+
+            foreach (var row in rows)
+            {
+                HistoryItem item = new HistoryItem();
+                item.URL = row.URL;
+                item.Title = row.Title;
+                item.Date = row.Date;
+                item.ID = row.Id;
+
+                results.Add(item);
+            }
+            return results;
+        }
+
+        public static void DeleteHistoryItem(int id, DateTime dateTime, int index)
+        {
+            HistoryTableAdapter adapter = new HistoryTableAdapter();
+            adapter.Delete(id, dateTime);
+            MyTime.RemoveAt(index);
         }
     }
 }

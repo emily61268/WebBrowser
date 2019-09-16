@@ -61,5 +61,25 @@ namespace WebBrowser.UI
                 listBoxHistoryManager.Items.Add(string.Format("[{0}] {1} ({2})", item.Date, item.Title, item.URL));
             }
         }
+
+        private void deleteHistoryButton_Click(object sender, EventArgs e)
+        {
+            int index = listBoxHistoryManager.SelectedIndex;
+
+            List<HistoryItem> items = HistoryManager.GetHistoryItems2();
+            HistoryItem item = items.ElementAt(index);
+            DateTime time = item.Date;
+            int id = item.ID;
+            HistoryManager.DeleteHistoryItem(id, time, index);
+
+            listBoxHistoryManager.Items.Clear();
+
+            items = HistoryManager.GetHistoryItems();
+
+            foreach (HistoryItem i in items)
+            {
+                listBoxHistoryManager.Items.Add(string.Format("[{0}] {1} ({2})", i.Date, i.Title, i.URL));
+            }
+        }
     }
 }

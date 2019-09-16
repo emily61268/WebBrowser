@@ -102,6 +102,7 @@
             this.deleteHistoryButton.TabIndex = 3;
             this.deleteHistoryButton.Text = "Delete";
             this.deleteHistoryButton.UseVisualStyleBackColor = true;
+            this.deleteHistoryButton.Click += new System.EventHandler(this.deleteHistoryButton_Click);
             // 
             // clearAllButton
             // 
