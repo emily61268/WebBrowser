@@ -11,19 +11,14 @@ namespace WebBrowser.Logic
     public class HistoryManager
     {
 
-        static List<DateTime> MyTime = new List<DateTime>();
-        static int index;
-
         public static void AddHistoryItem(HistoryItem item)
         {
             HistoryTableAdapter adapter = new HistoryTableAdapter();
-            adapter.Insert(item.URL, item.Title, item.Date);
-            MyTime.Add(item.Date);
+            adapter.Insert(item.URL, item.Title, item.Date, item.DateTime);
         }
 
         public static List<HistoryItem> GetHistoryItems()
         {
-            index = 0;
             HistoryTableAdapter adapter = new HistoryTableAdapter();
             List<HistoryItem> results = new List<HistoryItem>();
             var rows = adapter.GetData();
@@ -31,42 +26,21 @@ namespace WebBrowser.Logic
             foreach (var row in rows)
             {
                 HistoryItem item = new HistoryItem();
-                item.URL = row.URL;
-                item.Title = row.Title;
-                item.Date = MyTime.ElementAt(index);
-
-                results.Add(item);
-
-                index++;
-            }
-
-            return results;
-        }
-
-        public static List<HistoryItem> GetHistoryItems2()
-        {
-            HistoryTableAdapter adapter = new HistoryTableAdapter();
-            List<HistoryItem> results = new List<HistoryItem>();
-            var rows = adapter.GetData();
-
-            foreach (var row in rows)
-            {
-                HistoryItem item = new HistoryItem();
+                item.ID = row.Id;
                 item.URL = row.URL;
                 item.Title = row.Title;
                 item.Date = row.Date;
-                item.ID = row.Id;
+                item.DateTime = row.DateTime;
 
                 results.Add(item);
             }
             return results;
         }
 
-        public static void DeleteHistoryItem(int id, DateTime dateTime, int index)
+        public static void DeleteHistoryItem(int id, DateTime dateTime)
         {
             HistoryTableAdapter adapter = new HistoryTableAdapter();
             adapter.Delete(id, dateTime);
-            MyTime.RemoveAt(index);
         }
     }
 }

@@ -64,9 +64,6 @@
       <DependentUpon>BookmarksDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="HistoryDataSet.cs">
-      <DependentUpon>HistoryDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="HistoryDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

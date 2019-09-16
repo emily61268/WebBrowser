@@ -48,6 +48,7 @@ namespace WebBrowser.UI
             history.Title = webBrowser1.DocumentTitle;
             history.URL = webBrowser1.Url.ToString();
             history.Date = DateTime.Now;
+            history.DateTime = DateTime.Now.ToString();
 
             HistoryManager.AddHistoryItem(history);
 

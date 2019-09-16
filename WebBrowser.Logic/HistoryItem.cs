@@ -12,5 +12,6 @@ namespace WebBrowser.Logic
         public string Title { get; set; }
         public DateTime Date { get; set; }
         public int ID { get; set; }
+        public string DateTime { get; set; }
     }
 }

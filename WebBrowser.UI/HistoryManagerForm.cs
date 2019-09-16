@@ -26,7 +26,7 @@ namespace WebBrowser.UI
 
             foreach (HistoryItem item in items)
             {
-                listBoxHistoryManager.Items.Add(string.Format("[{0}] {1} ({2})", item.Date, item.Title, item.URL));
+                listBoxHistoryManager.Items.Add(string.Format("[{0}] {1} ({2})", item.DateTime, item.Title, item.URL));
             }
         }
 
@@ -38,7 +38,7 @@ namespace WebBrowser.UI
 
             foreach (var item in items)
             {
-                string itemString = string.Format("[{0}] {1} ({2})", item.Date, item.Title, item.URL);
+                string itemString = string.Format("[{0}] {1} ({2})", item.DateTime, item.Title, item.URL);
                 if (Regex.IsMatch(itemString, string.Format(@"\b{0}\b", Regex.Escape(searchTerm.Text)), RegexOptions.IgnoreCase))
                 {
                     resultList.Add(item);
@@ -47,7 +47,7 @@ namespace WebBrowser.UI
 
             foreach (var result in resultList)
             {
-                listBoxHistoryManager.Items.Add(string.Format("[{0}] {1} ({2})", result.Date, result.Title, result.URL));
+                listBoxHistoryManager.Items.Add(string.Format("[{0}] {1} ({2})", result.DateTime, result.Title, result.URL));
             }
         }
 
@@ -58,7 +58,7 @@ namespace WebBrowser.UI
 
             foreach (HistoryItem item in items)
             {
-                listBoxHistoryManager.Items.Add(string.Format("[{0}] {1} ({2})", item.Date, item.Title, item.URL));
+                listBoxHistoryManager.Items.Add(string.Format("[{0}] {1} ({2})", item.DateTime, item.Title, item.URL));
             }
         }
 
@@ -66,11 +66,11 @@ namespace WebBrowser.UI
         {
             int index = listBoxHistoryManager.SelectedIndex;
 
-            List<HistoryItem> items = HistoryManager.GetHistoryItems2();
+            List<HistoryItem> items = HistoryManager.GetHistoryItems();
             HistoryItem item = items.ElementAt(index);
             DateTime time = item.Date;
             int id = item.ID;
-            HistoryManager.DeleteHistoryItem(id, time, index);
+            HistoryManager.DeleteHistoryItem(id, time);
 
             listBoxHistoryManager.Items.Clear();
 
@@ -78,22 +78,21 @@ namespace WebBrowser.UI
 
             foreach (HistoryItem i in items)
             {
-                listBoxHistoryManager.Items.Add(string.Format("[{0}] {1} ({2})", i.Date, i.Title, i.URL));
+                listBoxHistoryManager.Items.Add(string.Format("[{0}] {1} ({2})", i.DateTime, i.Title, i.URL));
             }
         }
 
         private void clearAllButton_Click(object sender, EventArgs e)
         {
             listBoxHistoryManager.Items.Clear();
-            int index = 0;
 
-            List<HistoryItem> items = HistoryManager.GetHistoryItems2();
+            List<HistoryItem> items = HistoryManager.GetHistoryItems();
 
             foreach (var item in items)
             {
                 DateTime time = item.Date;
                 int id = item.ID;
-                HistoryManager.DeleteHistoryItem(id, time, index);
+                HistoryManager.DeleteHistoryItem(id, time);
             }
         }
     }

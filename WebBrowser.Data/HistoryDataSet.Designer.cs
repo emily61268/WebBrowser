@@ -287,6 +287,8 @@ namespace WebBrowser.Data {
             
             private global::System.Data.DataColumn columnDate;
             
+            private global::System.Data.DataColumn columnDateTime;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public HistoryDataTable() {
@@ -354,6 +356,14 @@ namespace WebBrowser.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DateTimeColumn {
+                get {
+                    return this.columnDateTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +399,14 @@ namespace WebBrowser.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HistoryRow AddHistoryRow(string URL, string Title, System.DateTime Date) {
+            public HistoryRow AddHistoryRow(string URL, string Title, System.DateTime Date, string DateTime) {
                 HistoryRow rowHistoryRow = ((HistoryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         URL,
                         Title,
-                        Date};
+                        Date,
+                        DateTime};
                 rowHistoryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHistoryRow);
                 return rowHistoryRow;
@@ -429,6 +440,7 @@ namespace WebBrowser.Data {
                 this.columnURL = base.Columns["URL"];
                 this.columnTitle = base.Columns["Title"];
                 this.columnDate = base.Columns["Date"];
+                this.columnDateTime = base.Columns["DateTime"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -442,6 +454,8 @@ namespace WebBrowser.Data {
                 base.Columns.Add(this.columnTitle);
                 this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate);
+                this.columnDateTime = new global::System.Data.DataColumn("DateTime", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateTime);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -455,6 +469,8 @@ namespace WebBrowser.Data {
                 this.columnTitle.AllowDBNull = false;
                 this.columnTitle.MaxLength = 2147483647;
                 this.columnDate.AllowDBNull = false;
+                this.columnDateTime.AllowDBNull = false;
+                this.columnDateTime.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -638,6 +654,17 @@ namespace WebBrowser.Data {
                     this[this.tableHistory.DateColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DateTime {
+                get {
+                    return ((string)(this[this.tableHistory.DateTimeColumn]));
+                }
+                set {
+                    this[this.tableHistory.DateTimeColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -803,6 +830,7 @@ namespace WebBrowser.Data.HistoryDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("URL", "URL");
             tableMapping.ColumnMappings.Add("Title", "Title");
             tableMapping.ColumnMappings.Add("Date", "Date");
+            tableMapping.ColumnMappings.Add("DateTime", "DateTime");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -810,26 +838,29 @@ namespace WebBrowser.Data.HistoryDataSetTableAdapters {
                 "";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [History] ([URL], [Title], [Date]) VALUES (@URL, @Title, @Date);\r\nSEL" +
-                "ECT Id, URL, Title, Date FROM History WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [History] ([URL], [Title], [Date], [DateTime]) VALUES (@URL, @Title, " +
+                "@Date, @DateTime);\r\nSELECT Id, URL, Title, Date, DateTime FROM History WHERE (Id" +
+                " = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@URL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "URL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateTime", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [History] SET [URL] = @URL, [Title] = @Title, [Date] = @Date WHERE (([Id] " +
-                "= @Original_Id) AND ([Date] = @Original_Date));\r\nSELECT Id, URL, Title, Date FRO" +
-                "M History WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [History] SET [URL] = @URL, [Title] = @Title, [Date] = @Date, [DateTime] =" +
+                " @DateTime WHERE (([Id] = @Original_Id) AND ([Date] = @Original_Date));\r\nSELECT " +
+                "Id, URL, Title, Date, DateTime FROM History WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@URL", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "URL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateTime", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -930,7 +961,7 @@ namespace WebBrowser.Data.HistoryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string URL, string Title, System.DateTime Date) {
+        public virtual int Insert(string URL, string Title, System.DateTime Date, string DateTime) {
             if ((URL == null)) {
                 throw new global::System.ArgumentNullException("URL");
             }
@@ -944,6 +975,12 @@ namespace WebBrowser.Data.HistoryDataSetTableAdapters {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Title));
             }
             this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(Date));
+            if ((DateTime == null)) {
+                throw new global::System.ArgumentNullException("DateTime");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(DateTime));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -964,7 +1001,7 @@ namespace WebBrowser.Data.HistoryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string URL, string Title, System.DateTime Date, int Original_Id, System.DateTime Original_Date, int Id) {
+        public virtual int Update(string URL, string Title, System.DateTime Date, string DateTime, int Original_Id, System.DateTime Original_Date, int Id) {
             if ((URL == null)) {
                 throw new global::System.ArgumentNullException("URL");
             }
@@ -978,9 +1015,15 @@ namespace WebBrowser.Data.HistoryDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Title));
             }
             this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(Date));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Original_Date));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Id));
+            if ((DateTime == null)) {
+                throw new global::System.ArgumentNullException("DateTime");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(DateTime));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_Date));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1001,8 +1044,8 @@ namespace WebBrowser.Data.HistoryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string URL, string Title, System.DateTime Date, int Original_Id, System.DateTime Original_Date) {
-            return this.Update(URL, Title, Date, Original_Id, Original_Date, Original_Id);
+        public virtual int Update(string URL, string Title, System.DateTime Date, string DateTime, int Original_Id, System.DateTime Original_Date) {
+            return this.Update(URL, Title, Date, DateTime, Original_Id, Original_Date, Original_Id);
         }
     }
     
