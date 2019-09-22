@@ -15,6 +15,7 @@ namespace WebBrowser.Logic
         {
             HistoryTableAdapter adapter = new HistoryTableAdapter();
             adapter.Insert(item.URL, item.Title, item.Date, item.DateTime);
+            
         }
 
         public static List<HistoryItem> GetHistoryItems()
@@ -33,6 +34,21 @@ namespace WebBrowser.Logic
                 item.DateTime = row.DateTime;
 
                 results.Add(item);
+            }
+            HistoryItem historyItem = new HistoryItem();
+            int i = 0;
+            while (i != results.Count)
+            {
+                if (historyItem.URL == results[i].URL)
+                {
+                    DeleteHistoryItem(results[i].ID, results[i].Date);
+                    results.Remove(results[i]);
+                }
+                else
+                {
+                    historyItem = results[i];
+                    i++;
+                }
             }
             return results;
         }
