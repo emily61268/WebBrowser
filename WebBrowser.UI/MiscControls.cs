@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebBrowser.Logic;
-
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace WebBrowser.UI
 {
     public partial class MiscControls : UserControl
     {
+        public Main ParentForm { get; set; }
+
         public MiscControls()
         {
             InitializeComponent();
@@ -43,6 +45,8 @@ namespace WebBrowser.UI
 
             addressTextBox.Text = webBrowser1.Url.ToString();
 
+            
+
             HistoryItem history = new HistoryItem();
             history.Title = webBrowser1.DocumentTitle;
             history.URL = webBrowser1.Url.ToString();
@@ -58,6 +62,13 @@ namespace WebBrowser.UI
             }
 
             webBrowser1.Document.MouseOver += new HtmlElementEventHandler(document_MouseOver);
+
+            if (ParentForm == null)
+                return;
+
+            TabControl tabs = ParentForm.Controls["tab1"] as TabControl;
+            int index = tabs.SelectedIndex;
+            tabs.TabPages[index].Text = webBrowser1.DocumentTitle;
         }
 
         private void document_MouseOver(object sender, HtmlElementEventArgs e)

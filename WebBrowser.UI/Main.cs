@@ -13,9 +13,13 @@ namespace WebBrowser.UI
 {
     public partial class Main : Form
     {
+        public static int index = 0;
+        MiscControls newControls;
         public Main()
         {
             InitializeComponent();
+            this.miscControls1.ParentForm = this;
+            this.miscControls2.ParentForm = this;
         }
 
         private int tabNumber = 1;
@@ -35,8 +39,9 @@ namespace WebBrowser.UI
         {
             if (e.Control && (e.KeyCode == Keys.T))
             {
-                MiscControls newControls = new MiscControls();
+                newControls = new MiscControls();
                 newControls.Dock = DockStyle.Fill;
+                this.newControls.ParentForm = this;
                 TabPage newPage = new TabPage("New Tab");
                 newPage.Controls.Add(newControls);
                 this.tab1.TabPages.Add(newPage);
@@ -51,8 +56,9 @@ namespace WebBrowser.UI
 
         private void newTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MiscControls newControls = new MiscControls();
+            newControls = new MiscControls();
             newControls.Dock = DockStyle.Fill;
+            this.newControls.ParentForm = this;
             TabPage newPage = new TabPage("New Tab " + tabNumber.ToString());
             newPage.Controls.Add(newControls);
             this.tab1.TabPages.Add(newPage);
@@ -109,8 +115,9 @@ namespace WebBrowser.UI
             var lastIndex = this.tab1.TabCount - 1;
             if (this.tab1.GetTabRect(lastIndex).Contains(e.Location))
             {
-                MiscControls newControls = new MiscControls();
+                newControls = new MiscControls();
                 newControls.Dock = DockStyle.Fill;
+                this.newControls.ParentForm = this;
                 TabPage newPage = new TabPage("New Tab " + tabNumber.ToString());
                 newPage.Controls.Add(newControls);
                 this.tab1.TabPages.Add(newPage);

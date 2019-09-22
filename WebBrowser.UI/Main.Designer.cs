@@ -171,7 +171,7 @@ namespace WebBrowser.UI
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(146, 30);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -208,6 +208,7 @@ namespace WebBrowser.UI
             this.tab1.Name = "tab1";
             this.tab1.SelectedIndex = 0;
             this.tab1.Size = new System.Drawing.Size(1495, 725);
+            this.tab1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tab1.TabIndex = 3;
             this.tab1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tab1_DrawItem);
             this.tab1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tab1_Selecting);
@@ -278,9 +279,9 @@ namespace WebBrowser.UI
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem clearHistoryToolStripMenuItem;
         public System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private MiscControls miscControls2;
         public System.Windows.Forms.TabControl tab1;
+        public System.Windows.Forms.TabPage tabPage2;
     }
 }
 
