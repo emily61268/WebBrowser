@@ -11,8 +11,27 @@ namespace WebBrowser.Logic
     {
         public static void AddBookmarkItem(BookmarkItem item)
         {
-            BookmarksTableAdapter adapter1 = new BookmarksTableAdapter();
-            adapter1.Insert(item.URL, item.Title);
+            var adapter1 = new BookmarksTableAdapter();
+            var rows = adapter1.GetData();
+
+
+            if (rows.Count == 0)
+            {
+                adapter1.Insert(item.URL, item.Title);
+            }
+            else
+            {
+                List<string> URLs = new List<string>();
+                foreach (var row in rows)
+                {
+                    URLs.Add(row.URL);
+                }
+
+                if (!URLs.Contains(item.URL))
+                {
+                    adapter1.Insert(item.URL, item.Title);
+                }
+            }
         }
 
         public static List<BookmarkItem> GetBookmarkItems()
