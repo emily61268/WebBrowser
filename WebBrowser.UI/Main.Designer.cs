@@ -191,6 +191,7 @@ namespace WebBrowser.UI
             this.miscControls1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.miscControls1.Location = new System.Drawing.Point(3, 3);
             this.miscControls1.Name = "miscControls1";
+            this.miscControls1.ParentForm = null;
             this.miscControls1.Size = new System.Drawing.Size(1481, 686);
             this.miscControls1.TabIndex = 0;
             // 
@@ -233,6 +234,7 @@ namespace WebBrowser.UI
             this.miscControls2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.miscControls2.Location = new System.Drawing.Point(3, 3);
             this.miscControls2.Name = "miscControls2";
+            this.miscControls2.ParentForm = null;
             this.miscControls2.Size = new System.Drawing.Size(1481, 686);
             this.miscControls2.TabIndex = 0;
             // 
@@ -247,7 +249,7 @@ namespace WebBrowser.UI
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Qrox";
+            this.Text = "Qroxx";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             this.menuStrip1.ResumeLayout(false);
